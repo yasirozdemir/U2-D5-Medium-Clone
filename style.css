@@ -1,0 +1,19 @@
+.header-and-hero_container {
+  background-color: #ffc017;
+}
+
+header {
+  display: flex;
+  width: 60%;
+  margin-inline: auto;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+}
+
+header .header-links_container {
+  display: flex;
+  width: 40%;
+  justify-content: flex-end;
+  column-gap: 5vh;
+}
