@@ -346,6 +346,7 @@ var createDiscoverButtonsAndDiscoverLinks = function () {
     button.innerText = index;
     discoverButtonsContainer.appendChild(button);
   }
+
   for (index of discoverLinksData) {
     let link = document.createElement("a");
     link.setAttribute("href", "#");
