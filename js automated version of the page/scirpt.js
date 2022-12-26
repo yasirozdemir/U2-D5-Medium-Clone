@@ -262,6 +262,7 @@ var essayCardsData = [
 // GLOBAL VARIABLES FOR ESSAY CARDS
 var essayCardsContainer = document.getElementById("essay-cards_container");
 
+// CREATING ESSAY CARDS USING THE DATA
 var createEssayCards = function () {
   for (card of essayCardsData) {
     // 1. create essay-card div
@@ -274,7 +275,7 @@ var createEssayCards = function () {
     essayCard.innerHTML = `<div class="essay-card-content_container">
             <div class="essay-card_author-info">
                 <div class="essay-card_author-photo">
-                    <img src="${card.authorPhotoSrcAttribute}" alt="author profile photo">
+                    <a href='#'> <img src="${card.authorPhotoSrcAttribute}" alt="author profile photo"> </a>
                 </div>
                 <div class="essay-card_author-name">
                     ${card.authorName} 
@@ -304,6 +305,31 @@ var createEssayCards = function () {
   }
 };
 
+// DATA ARRAYS FOR DISCOVER BUTTONS AND DISCOVER LINKS
+var discoverButtonsData = [
+  "Programming",
+  "Data Science",
+  "Technology",
+  "Self Improvement",
+  "Writing",
+  "Relationship",
+  "Machine Learning",
+  "Productivity",
+  "Politics",
+];
+
+var discoverLinksData = [
+  "Help",
+  "Status",
+  "Writers",
+  "Blog",
+  "Careers",
+  "Privacy",
+  "Terms",
+  "About",
+  "Text to Speech",
+];
+
 // GLOBAL VARIABLES FOR DISCOVER BUTTONS AND DISCOVER LINKS
 var discoverButtonsContainer = document.getElementById(
   "discover-buttons_container"
@@ -312,4 +338,25 @@ var discoverLinksContainer = document.getElementById(
   "discover-links_container"
 );
 
-var createDiscoverButtons = function () {};
+// CREATING DISCOVER BUTTONS AND DISCOVER LINKS USING THE DATA
+var createDiscoverButtonsAndDiscoverLinks = function () {
+  for (index of discoverButtonsData) {
+    let button = document.createElement("div");
+    button.className = "discover-buttons";
+    button.innerText = index;
+    discoverButtonsContainer.appendChild(button);
+  }
+  for (index of discoverLinksData) {
+    let link = document.createElement("a");
+    link.setAttribute("href", "#");
+    link.className = "discover-links";
+    link.innerText = index;
+    discoverLinksContainer.appendChild(link);
+  }
+};
+
+window.onload = () => {
+  createTrendingCards();
+  createEssayCards();
+  createDiscoverButtonsAndDiscoverLinks();
+};
