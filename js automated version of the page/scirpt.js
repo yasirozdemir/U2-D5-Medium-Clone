@@ -356,8 +356,23 @@ var createDiscoverButtonsAndDiscoverLinks = function () {
   }
 };
 
+// ANIMATED M PART IN HERO
+
+// GLOBAL VARIABLES FOR ANIMATED M PART
+let mNode = document.querySelectorAll("#m-part svg > g > g g");
+// randomly picking a single M and make it visible or non-visible
+var animatedMPart = setInterval(() => {
+  // picking a random M
+  let randomMIndex = Math.floor(Math.random() * mNode.length);
+  // random number for changing the visibility of picked m
+  let randomNumber = Math.floor(Math.random() * 2);
+  // changing the visibility
+  mNode[randomMIndex].style.opacity = randomNumber;
+}, 20);
+
 window.onload = () => {
   createTrendingCards();
   createEssayCards();
   createDiscoverButtonsAndDiscoverLinks();
+  animatedMPart();
 };

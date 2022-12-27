@@ -442,3 +442,7 @@ header .header-links_container div {
   color: rgba(59, 59, 59, 0.589);
   background-color: #7575759f;
 }
+
+#m-part svg > g > g g {
+  transition: opacity 100ms;
+}
