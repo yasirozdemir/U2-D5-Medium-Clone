@@ -374,5 +374,59 @@ window.onload = () => {
   createTrendingCards();
   createEssayCards();
   createDiscoverButtonsAndDiscoverLinks();
-  animatedMPart();
 };
+
+// TEMPORARY SECTIONS -----------------------------------------------------
+
+let temporarySectionsContainer =
+  document.getElementsByClassName("temporary-sections")[0];
+
+let tempSectionCard = document.getElementsByClassName("temp-section_card")[0];
+
+// GET STARTED SPECIFIC VARIABLES
+let getStartedButton = document.querySelector(
+  ".header-links.get-started_button"
+);
+
+let startReadingButton = document.querySelector(
+  ".hero-section_container .hero-section_text-area .start-reading_button"
+);
+
+var getStarted = function () {
+  // a way to prevent scrolling when desired part is being showed
+  document.body.style.overflow = "hidden";
+  temporarySectionsContainer.classList.add("display-flex");
+  tempSectionCard.innerHTML = `<i class="bi bi-x-lg"></i>
+      <div>
+          <h2>Join Medium.</h2>
+          <div>
+              <div><i class="bi bi-google"></i> Sign up with Google</div>
+              <div><i class="bi bi-facebook"></i> Sign up with Facebook</div>
+              <div><i class="bi bi-envelope-fill"></i> Sign up with email</div>
+              <p>Already have an account? <a href="#">Sign in</a></p>
+          </div>
+          <p>Click “Sign Up” to agree to Medium's <a href="#">Terms of Service</a> and acknowledge that <br>
+              Medium's <a href="#">Privacy Policy</a> applies to you.</p>
+      </div>`;
+  tempSectionCard.classList.add("display-flex");
+};
+
+// to show get started section
+getStartedButton.addEventListener("click", getStarted);
+startReadingButton.addEventListener("click", getStarted);
+
+// to reverse all related with get started
+var getStartedReverse = function () {
+  document.body.style.overflow = "visible";
+  temporarySectionsContainer.classList.remove("display-flex");
+  tempSectionCard.innerHTML = "";
+  tempSectionCard.classList.remove("display-flex");
+};
+
+// THE FOLLOWING TWO STRUCTURE ARE COMMON FOR ALL THE TEMPORARY SECTIONS, APART FROM THE FUNCTION NAMES
+
+let closeIcon = document.querySelector(".temp-section_card > i"); // FIXME: add event listeners
+console.log(closeIcon);
+
+closeIcon.addEventListener("click", getStartedReverse());
+// temporarySectionsContainer.addEventListener("click", getStartedReverse);
